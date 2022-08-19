@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-2.1.4.min.js" ></script>
+    
+    <link rel="stylesheet" type="text/css" href="web/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="web/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="web/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script src="jspdf.debug.js"></script>
+</head>
+<body>
+    <div id="reporte">
+
+       
+   
+    <table>
+        <tr>
+            <th>Clave</th>
+            <th>Url</th>
+            <th>Descripción</th>  
+        </tr>
+       
+        <tr>
+            <td style="color: red">a</td>
+            <td>b</td>
+            <td>c</td>
+        </tr>
+
+
+    </table>  
+    
+        <div id="reporte2" class="container">
+            <div class="row">
+                <div class="col-xl-6 text-center col-lg-6 col-md-6 col-sm-6 col-6">
+                    a
+                </div>
+
+                <div class="col-xl-6 text-center col-lg-6 col-md-6 col-sm-6 col-6">
+                    b
+                </div>
+            </div>
+        </div>
+</div>
+<p><input onclick="descargarPDF('reporte','Archivo')" type="submit" name="imprimir" id="imprimir" value="Descargar PDF"></p>
+<script>
+    //DescargarPDF(reporte,Archivo);
+    function descargarPDF(ContenidoID,nombre){
+alert("entro");
+var pdf =new jsPDF('p','pt','letter');
+        html=$('#'+ContenidoID).html();
+        especialElementsHandlers={};
+        margins={top:10, bottom:20, left:20, width:522};
+        pdf.fromHTML(
+            html, margins.left, margins.top, {'width':margins.width},
+            function(dispose){pdf.save(nombre+'.pdf');}, margins);
+        
+    }
+</script>
+
+<script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+<script src="boostrap/js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="web/js/sweetAlert/libreria_sweetAlert.js"></script>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
